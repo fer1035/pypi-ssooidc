@@ -1,4 +1,3 @@
-===============
 **aws_ssooidc**
 ===============
 
@@ -35,35 +34,42 @@ Usage
 
 Installation:
 
-.. code-block:: BASH
+```bash
+pip3 install aws_ssooidc
+# or
+python3 -m pip install aws_ssooidc
 
-   pip3 install aws_ssooidc
-   # or
-   python3 -m pip install aws_ssooidc
+```
 
 In Python3:
 
-.. code-block:: BASH
+```python
+import aws_ssooidc.aws_ssooidc as sso
+response = sso.gettoken('<start_url>')
+access_token = response['accessToken']
 
-   from aws_ssooidc.aws_ssooidc import gettoken as sso
-   response = sso('<start_url>')
-   access_token = response['accessToken']
+```
 
 In BASH:
 
-.. code-block:: BASH
+```bash
+python3 -c "
+    import aws_ssooidc.aws_ssooidc as sso
+    response = sso.gettoken('<start_url>')
+    access_token = response['accessToken']
+"
 
-   python3 -c "
-       from aws_ssooidc.aws_ssooidc import gettoken as sso
-       response = sso('<start_url>')
-       access_token = response['accessToken']
-   "
+```
 
 Changelog
 ---------
+
+2021.1.0.1
+
+- Added verification URI printout for devices which cannot launch browsers automatically.
 
 2021.1.0.0
 
 - Initial release.
 
-*Current version: 2021.1.0.0*
+*Current version: 2021.1.0.1*
