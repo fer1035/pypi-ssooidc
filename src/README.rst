@@ -46,7 +46,7 @@ In Python3:
 .. code-block:: BASH
 
    from aws_ssooidc.aws_ssooidc import gettoken as sso
-   response = sso('<start_url>')
+   response = sso('start_url')
    access_token = response['accessToken']
 
 In BASH:
@@ -55,7 +55,7 @@ In BASH:
 
    python3 -c "
        from aws_ssooidc.aws_ssooidc import gettoken as sso;
-       response = sso('<start_url>');
+       response = sso('start_url');
        access_token = response['accessToken']
    "
 
