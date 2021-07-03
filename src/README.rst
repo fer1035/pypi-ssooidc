@@ -45,8 +45,8 @@ In Python3:
 
 .. code-block:: BASH
 
-   from aws_ssooidc.aws_ssooidc import gettoken as sso
-   response = sso('<start_url>')
+   import aws_ssooidc.aws_ssooidc as sso
+   response = sso.gettoken('<start_url>')
    access_token = response['accessToken']
 
 In BASH:
@@ -54,16 +54,20 @@ In BASH:
 .. code-block:: BASH
 
    python3 -c "
-       from aws_ssooidc.aws_ssooidc import gettoken as sso
-       response = sso('<start_url>')
+       import aws_ssooidc.aws_ssooidc as sso
+       response = sso.gettoken('<start_url>')
        access_token = response['accessToken']
    "
 
 Changelog
 ---------
 
+2021.1.0.1
+
+- Added verification URI printout for devices which cannot launch browsers automatically.
+
 2021.1.0.0
 
 - Initial release.
 
-*Current version: 2021.1.0.0*
+*Current version: 2021.1.0.1*

@@ -141,8 +141,7 @@ def getjsontoken(
 
 def gettoken(
     start_url: str,
-    client_name: str = 'ssoclient',
-    region: str = 'us-east-1'
+    client_name: str = 'ssoclient'
 ) -> dict:
     """
     Get SSO Access Token using getclienttoken.
@@ -156,16 +155,19 @@ def gettoken(
     """
     # Create authorization client.
     response_create = createclient(
-        client_name,
-        region=region
+        client_name
     )
 
     # Start client authorization process.
     response_start = startauth(
         response_create['clientId'],
         response_create['clientSecret'],
-        start_url,
-        region=region
+        start_url
+    )
+
+    print(
+        'Verification URI: {}'.
+        format(response_start['verificationUriComplete'])
     )
 
     # Open web browser for authentication.
@@ -185,8 +187,7 @@ def gettoken(
             response = getclienttoken(
                 response_create['clientId'],
                 response_create['clientSecret'],
-                response_start['deviceCode'],
-                region=region
+                response_start['deviceCode']
             )
             break
         except Exception as e:
