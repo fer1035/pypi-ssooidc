@@ -1,5 +1,5 @@
 ==============
-**AWS-SSOOIDC**
+**aws_ssooidc**
 ==============
 
 Overview
@@ -37,16 +37,16 @@ Installation:
 
 .. code-block:: BASH
 
-   pip3 install aws-ssooidc
+   pip3 install aws_ssooidc
    # or
-   python3 -m pip install aws-ssooidc
+   python3 -m pip install aws_ssooidc
 
 In Python3:
 
 .. code-block:: BASH
 
-   import aws-ssooidc
-   response = aws-ssooidc.gettoken('<start_url>')
+   from aws_ssooidc.aws_ssooidc import gettoken as sso
+   response = sso('<start_url>')
    access_token = response['accessToken']
 
 In BASH:
@@ -54,8 +54,8 @@ In BASH:
 .. code-block:: BASH
 
    python3 -c "
-       import aws-ssooidc;
-       response = aws-ssooidc.gettoken('<start_url>');
+       from aws_ssooidc.aws_ssooidc import gettoken as sso;
+       response = sso('<start_url>');
        access_token = response['accessToken']
    "
 
