@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "AWS-SSOOIDC"
+name = "aws_ssooidc"
 version = "2021.1.0.0"
 description = "Create temporary credentials for AWS SSO-OIDC."
 readme = "README.rst"
