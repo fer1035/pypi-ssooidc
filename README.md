@@ -1,6 +1,6 @@
-==============
+===============
 **aws_ssooidc**
-==============
+===============
 
 Overview
 --------
@@ -54,8 +54,8 @@ In BASH:
 .. code-block:: BASH
 
    python3 -c "
-       from aws_ssooidc.aws_ssooidc import gettoken as sso;
-       response = sso('<start_url>');
+       from aws_ssooidc.aws_ssooidc import gettoken as sso
+       response = sso('<start_url>')
        access_token = response['accessToken']
    "
 
