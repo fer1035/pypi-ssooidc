@@ -37,9 +37,9 @@ Installation:
 
 .. code-block:: BASH
 
-   pip3 install aws_ssooidc
+   pip3 install aws-ssooidc
    # or
-   python3 -m pip install aws_ssooidc
+   python3 -m pip install aws-ssooidc
 
 In Python3:
 
@@ -62,6 +62,10 @@ In BASH:
 Changelog
 ---------
 
+2021.1.0.2
+
+- Updated README.
+
 2021.1.0.1
 
 - Added verification URI printout for devices which cannot launch browsers automatically.
@@ -70,4 +74,4 @@ Changelog
 
 - Initial release.
 
-*Current version: 2021.1.0.1*
+*Current version: 2021.1.0.2*
