@@ -23,11 +23,15 @@ Optional (Keyword) Arguments
 - client_name
     - Description: Arbitrary name of the SSO client to create.
     - Type: String
-    - Default: ssoclient
+    - Default: 'ssoclient'
 - region
     - Description: Your AWS region.
     - Type: String
-    - Default: us-east-1
+    - Default: 'us-east-1'
+- timeout
+    - Description: Number of tries before giving up.
+    - Type: Integer
+    - Default: 30
 
 Usage
 -----
@@ -44,7 +48,7 @@ python3 -m pip install aws-ssooidc
 In Python3:
 
 ```python
-import aws_ssooidc.aws_ssooidc as sso
+import aws_ssooidc as sso
 response = sso.gettoken('<start_url>')
 access_token = response['accessToken']
 
@@ -54,7 +58,7 @@ In BASH:
 
 ```bash
 python3 -c "
-    import aws_ssooidc.aws_ssooidc as sso
+    import aws_ssooidc as sso
     response = sso.gettoken('<start_url>')
     access_token = response['accessToken']
 "
@@ -63,6 +67,14 @@ python3 -c "
 
 Changelog
 ---------
+
+2021.1.1.0
+
+- Bugfix: Added **region** as keyword in *gettoken* function call.
+- Added **timeout** as keyword in *gettoken* function call.
+- Added message into JSON cache file error handling.
+- Restructured module for easier usage.
+- Updated README.
 
 2021.1.0.2
 
@@ -76,4 +88,4 @@ Changelog
 
 - Initial release.
 
-*Current version: 2021.1.0.2*
+*Current version: 2021.1.1.0*
