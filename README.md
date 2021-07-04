@@ -50,6 +50,8 @@ In Python3:
 ```python
 import aws_ssooidc as sso
 response = sso.gettoken('<start_url>')
+
+# To get Access Token:
 access_token = response['accessToken']
 
 ```
@@ -60,6 +62,8 @@ In BASH:
 python3 -c "
     import aws_ssooidc as sso
     response = sso.gettoken('<start_url>')
+
+    # To get Access Token:
     access_token = response['accessToken']
 "
 
@@ -67,6 +71,12 @@ python3 -c "
 
 Changelog
 ---------
+
+2021.1.1.1
+
+- Bugfix: Added type hint to **timeout** parameter in *gettoken*.
+- Added feedbacks to *gettoken*.
+- Added type and value check to **timeout** parameter.
 
 2021.1.1.0
 
@@ -88,4 +98,4 @@ Changelog
 
 - Initial release.
 
-*Current version: 2021.1.1.0*
+*Current version: 2021.1.1.1*
