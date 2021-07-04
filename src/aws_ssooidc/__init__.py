@@ -8,11 +8,17 @@ import webbrowser
 import time
 
 
-__version__ = '2021.1.1.0'
+__version__ = '2021.1.1.1'
 
 
 class FailedToGetFileException(Exception):
-    """Raised when the JSON cache fails file check."""
+    """Raise when the JSON cache fails file check."""
+
+    pass
+
+
+class InvalidTimeoutException(Exception):
+    """Raise when the timeout value is not a positive integer."""
 
     pass
 
@@ -133,7 +139,9 @@ def getjsontoken(
     # Raise exception if specified JSON cache file
     # is not a file or does not exist.
     if not os.path.isfile(json_cache):
-        raise FailedToGetFileException('Failed to get JSON cache file')
+        raise FailedToGetFileException(
+            'Failed to get JSON cache file.'
+        )
 
     # Get Access Token and expiry from JSON cache.
     with open(json_cache, 'r') as f:
@@ -146,7 +154,7 @@ def gettoken(
     start_url: str,
     client_name: str = 'ssoclient',
     region: str = 'us-east-1',
-    timeout=30
+    timeout: int = 30
 ) -> dict:
     """
     Get SSO Access Token using getclienttoken.
@@ -158,6 +166,12 @@ def gettoken(
 
     return dict
     """
+    # Check timeout data type and value.
+    if not isinstance(timeout, int) or timeout < 0:
+        raise InvalidTimeoutException(
+            'Expecting a positive integer for timeout.'
+        )
+
     # Create authorization client.
     response_create = createclient(
         client_name,
@@ -207,8 +221,10 @@ def gettoken(
 
     try:
         response
+        print('Access Token retrieval successful.')
         return response
     except Exception as e:
+        print('Request failed.')
         return {
             'message': (
                 'Failed to get Access Token after {} tries.'
